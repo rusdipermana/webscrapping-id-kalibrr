@@ -1,0 +1,22 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+div {
+	margin-bottom: 20px;
+}
+
+pre {
+	background-color: #eee;
+	padding: 10px;
+	white-space: pre-wrap;
+}
+
+#plot {
+	width: 80%;
+	margin: 0 auto;
+}

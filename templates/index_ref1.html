@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Top 10 Locations</title>
+	<!-- Load Plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+</head>
+<body>
+	<h1>Top 10 Locations</h1>
+	<div>
+		<p>Below are the top 10 locations in the dataset:</p>
+		<pre>{{ card_data }}</pre>
+	</div>
+	<div>
+		<p>Bar chart of top 10 locations:</p>
+		<!-- Plotly chart will be drawn inside this DIV -->
+		<div id='plot'></div>
+	</div>
+	<!-- JavaScript to create the Plotly chart using the plot_result variable -->
+	<script>
+		var plot_data = '{{ plot_result }}';
+		var plot_data_parsed = atob(plot_data);
+		var plot_data_array = new Uint8Array(new ArrayBuffer(plot_data_parsed.length));
+		for (var i = 0; i < plot_data_parsed.length; i++) {
+			plot_data_array[i] = plot_data_parsed.charCodeAt(i);
+		}
+		var plot_layout = {
+			margin: {t: 0}
+		};
+		Plotly.newPlot('plot', [{type: 'bar', x: {{ top_city_dict.index|tojson|safe }}, y: {{ top_city_dict.values|tojson|safe }} }], plot_layout, {staticPlot: true, responsive: true});
+	</script>
+</body>
+</html>

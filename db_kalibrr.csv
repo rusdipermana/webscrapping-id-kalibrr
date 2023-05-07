@@ -2,9 +2,9 @@ Company,Title,Location,Published_At,Application_Deadline
 paninbank,mis data analytics,Jakarta Pusat,2 days,11 May
 pt panin daiichi life bancassurance,bancassurance oficer area pluit cengkareng bekasi karawang cikarang,North Jakarta,2 days,3 Jul
 pt mobilitas digital indonesia,b2b commercial sales account,East Jakarta,2 days,4 Jun
-ati business group,corporate it leader,Central Jakarta,2 days,3 Jul
-schoters,data analyst,South Jakarta,2 days,3 Jul
-pt panin daiichi life bancassurance,bancassurance officer area dki jakarta jawa barat,Central Jakarta,2 days,16 May
+ati business group,corporate it leader,Central Jakarta,3 days,3 Jul
+schoters,data analyst,South Jakarta,3 days,3 Jul
+pt panin daiichi life bancassurance,bancassurance officer area dki jakarta jawa barat,Central Jakarta,3 days,16 May
 kompas gramedia,news video editor kompascom solo,Surakarta,3 days,30 Jul
 pt global urban esensial,growth b2c lead,South Tangerang,3 days,2 Jul
 pt alam sutera realty tbk,finance accounting staff pasar kemis kab tangerang,Tangerang,3 days,2 Jul
@@ -12,19 +12,19 @@ pt sinar mitra sepadan finance smsfinance,hr industrial relation specialist,Jaka
 pt panin daiichi life bancassurance,bancassurance officer area sulawesi bali papua,Makassar,3 days,14 May
 pt panin daiichi life bancassurance,bancassurance officer area jawa timur jawa tengah,Surabaya,3 days,14 May
 pt panin daiichi life bancassurance,bancassurance officer area bali mataram surabaya kendari solo manado palembang,Surabaya,3 days,14 May
-skintific,beauty product development,Jakarta Selatan,3 days,2 Aug
-pgi data,odoo developer,Jakarta,3 days,29 Jun
-paperid,devops engineer jakarta and malang,North Jakarta,3 days,29 Jun
+skintific,beauty product development,Jakarta Selatan,4 days,2 Aug
+pgi data,odoo developer,Jakarta,4 days,29 Jun
+paperid,devops engineer jakarta and malang,North Jakarta,4 days,29 Jun
 sehatq,backend developer,Central Jakarta,4 days,29 Jun
 pt bfi finance indonesia tbk,senior data scientist,Tangerang,4 days,2 Jul
 investree,business development manager,Jakarta,4 days,29 Jun
 perqara,ios developer,Jakarta Selatan,4 days,29 Jul
 pt bumi amartha teknologi mandiri,data analyst,Jakarta,4 days,29 Jun
-pcs group,finance accounting and tax supervisor,Jakarta Pusat,4 days,30 Jun
-pt adicipta inovasi teknologi,data analytics manager,Jakarta Barat,4 days,30 May
-pt mastersystem infotama,network engineer,Jakarta Pusat,4 days,29 Jun
-pt bfi finance indonesia tbk,human capital internship magang,Tangerang,4 days,30 Jun
-pt lyrid teknologi nusantara,tech sales,Jakarta Utara,4 days,26 Apr
+pcs group,finance accounting and tax supervisor,Jakarta Pusat,5 days,30 Jun
+pt adicipta inovasi teknologi,data analytics manager,Jakarta Barat,5 days,30 May
+pt mastersystem infotama,network engineer,Jakarta Pusat,5 days,29 Jun
+pt bfi finance indonesia tbk,human capital internship magang,Tangerang,5 days,30 Jun
+pt lyrid teknologi nusantara,tech sales,Jakarta Utara,5 days,26 Apr
 investree,ux researcher,Jakarta,5 days,9 Nov
 paperid,tech lead jakarta and malang,North Jakarta,5 days,29 Jun
 paperid,business analyst,North Jakarta,5 days,29 Jun
@@ -35,15 +35,15 @@ oy indonesia,aml anti money laundering staff,Jakarta Selatan,5 days,30 Jun
 jaris k,senior business development staff,Jakarta Selatan,5 days,30 May
 jaris k,business development staff,Jakarta Selatan,5 days,29 May
 vlink inc,full stack developer,Jakarta Selatan,5 days,30 May
-ogya,oracle dba,Jakarta,5 days,30 Jul
-astra financial,data quality analyst,Central Jakarta,5 days,1 Jul
-jaris k,account executive,Jakarta Selatan,5 days,30 Jun
-pcs group,backend developer,Tangerang Selatan,5 days,29 Aug
-pt andalan nusantara teknologi,senior it engineers govdevinf professional trainers,Jakarta Pusat,5 days,14 Jun
-compascoid,account executive,Jakarta Pusat,5 days,29 Jul
+ogya,oracle dba,Jakarta,6 days,30 Jul
+astra financial,data quality analyst,Central Jakarta,6 days,1 Jul
+jaris k,account executive,Jakarta Selatan,6 days,30 Jun
+pcs group,backend developer,Tangerang Selatan,6 days,29 Aug
+pt andalan nusantara teknologi,senior it engineers govdevinf professional trainers,Jakarta Pusat,6 days,14 Jun
+compascoid,account executive,Jakarta Pusat,6 days,29 Jul
 abhidi solution,big data developer talend,Jakarta Pusat,9 days,26 Jun
-finaccel,data analyst underwriting,South Jakarta,9 days,30 Aug
-pt bfi finance indonesia tbk,database analytic utilization,Tangerang,9 days,26 Jun
+finaccel,data analyst underwriting,South Jakarta,10 days,30 Aug
+pt bfi finance indonesia tbk,database analytic utilization,Tangerang,10 days,26 Jun
 compascoid,data and product quality assurance,Jakarta Pusat,10 days,25 Jun
 astra credit companies acc,ux researcher,South Jakarta,10 days,25 Jun
 paperid,associate product manager jakarta and malang,North Jakarta,10 days,29 Jun
@@ -67,7 +67,7 @@ pt bfi finance indonesia tbk,field asset management sumbawa,Sumbawa,12 days,30 M
 paperid,talent acquisition manager,North Jakarta,12 days,13 May
 gear inc,moderation trainers,Denpasar,17 days,11 May
 kompas gramedia,pricing officer,West Jakarta,17 days,30 May
-doku pt nusa satu inti artha,treasury manager,Jakarta Selatan,18 days,16 Jun
+doku pt nusa satu inti artha,treasury manager,Jakarta Selatan,19 days,16 Jun
 pt bank central asia tbk,network engineer,Central Jakarta,19 days,24 Nov
 pt bank central asia tbk,database engineer,Central Jakarta,19 days,8 Dec
 kompas gramedia,data analyst kg media,West Jakarta,19 days,11 Jun
@@ -75,34 +75,33 @@ hana bank,data engineer lead,Jakarta Selatan,19 days,29 Jun
 kitabisa,community engagement specialist,South Jakarta,19 days,14 Jun
 hana bank,data analyst,Jakarta Selatan,19 days,16 Jun
 pt bfi finance indonesia tbk,central leader,Tangerang,19 days,29 May
-pt gema mulia semesta souvia,customer relationship management officer,Bogor,19 days,16 Jun
-pt bfi finance indonesia tbk,commercial corporate operation,Tangerang,19 days,16 Jun
+pt gema mulia semesta souvia,customer relationship management officer,Bogor,20 days,16 Jun
+pt bfi finance indonesia tbk,commercial corporate operation,Tangerang,20 days,16 Jun
 pt bfi finance indonesia tbk,it auditor specialist,Tangerang,20 days,15 Dec
 adapundi,risk control assistant mandarin speaker,Jakarta Selatan,20 days,15 Jun
 investree,activation community engagement manager,Jakarta,20 days,15 Jun
-astra credit companies acc,auditor,South Jakarta,20 days,7 May
 pt bfi finance indonesia tbk,centro data video editing staff,Tangerang,20 days,15 Jun
-pgi data,microsoft power apps automation developer,Jakarta,20 days,30 May
-pt ocean centra furnindo,marketing manager,North Jakarta,20 days,6 Jun
-pt ocean centra furnindo,digital marketing manager,North Jakarta,20 days,14 Jun
-pt ocean centra furnindo,head sales marketing,North Jakarta,20 days,4 Jun
+pgi data,microsoft power apps automation developer,Jakarta,21 days,30 May
+pt ocean centra furnindo,marketing manager,North Jakarta,21 days,6 Jun
+pt ocean centra furnindo,digital marketing manager,North Jakarta,21 days,14 Jun
+pt ocean centra furnindo,head sales marketing,North Jakarta,21 days,4 Jun
 pt bank central asia tbk,program staf pendukung operasi pspo,Central Jakarta,23 days,11 Dec
 pt laku6 online indonesia,spgspb,Jakarta,23 days,11 Jun
 pt ionpay networks nicepay,it compliance,South Jakarta,23 days,12 Jun
 pt bfi finance indonesia tbk,customer research,Tangerang,23 days,12 Jun
 algoritma,business intelligence instructor,Jakarta,23 days,30 May
 pt jasa teknologi informasi ibm,sap sd support,Central Jakarta,23 days,12 Jun
-kompas gramedia,research assistant contract based universitas multimedia nusantara,Tangerang,23 days,30 Dec
-pt global urban esensial,backend developer,South Tangerang,23 days,30 Jul
-siloam hospitals group,accounting intern,Tangerang,23 days,30 May
+kompas gramedia,research assistant contract based universitas multimedia nusantara,Tangerang,24 days,30 Dec
+pt global urban esensial,backend developer,South Tangerang,24 days,30 Jul
+siloam hospitals group,accounting intern,Tangerang,24 days,30 May
 pt bfi finance indonesia tbk,customer service branch tasikmalaya,Tangerang,24 days,11 Jun
 cyber future forex,account manager,Jakarta Utara,24 days,11 Aug
 pt metrodata electronics tbk,technical consultant,Jakarta,24 days,11 Jun
 paperid,business operation associate,North Jakarta,24 days,1 Jun
-jaris k,ecommerce staff,Jakarta Selatan,24 days,11 Jun
-kitabisa,ceo office,South Jakarta,24 days,11 Jun
-pt bfi finance indonesia tbk,lead data engineer,Tangerang,24 days,11 Jun
-pt majoo teknologi indonesia,key account jr executive,Jakarta Selatan,24 days,11 Jun
+jaris k,ecommerce staff,Jakarta Selatan,25 days,11 Jun
+kitabisa,ceo office,South Jakarta,25 days,11 Jun
+pt bfi finance indonesia tbk,lead data engineer,Tangerang,25 days,11 Jun
+pt majoo teknologi indonesia,key account jr executive,Jakarta Selatan,25 days,11 Jun
 finaccel,offline merchant acquisition manager,Central Jakarta,25 days,29 Jun
 oona insurance indonesia,data analyst,Jakarta Selatan,25 days,30 May
 cyber future forex,business consultant penempatan jakarta selatan,South Jakarta,25 days,29 Jul
@@ -112,11 +111,11 @@ cyber future forex,telemarketer,Jakarta,25 days,10 Jun
 cyber future forex,marketing consultant,Jakarta,25 days,10 Jun
 pt adi data informatika,ios android developer,Jakarta Barat,25 days,10 Jun
 pt bank btpn tbk,mis analytics retail banking,South Jakarta,25 days,30 Aug
-fifgroup,it mis customer application,South Jakarta,25 days,10 Jun
-cyber future forex,business consultant,Jakarta Utara,25 days,10 Jul
-idn media,senior digital strategy associate production house,Jakarta,25 days,19 May
-pt dipo star finance,accounting associate,Jakarta Pusat,25 days,24 May
-pt bank central asia tbk,bca development program it bdp it,Central Jakarta,25 days,30 Dec
+fifgroup,it mis customer application,South Jakarta,a month,10 Jun
+cyber future forex,business consultant,Jakarta Utara,a month,10 Jul
+idn media,senior digital strategy associate production house,Jakarta,a month,19 May
+pt dipo star finance,accounting associate,Jakarta Pusat,a month,24 May
+pt bank central asia tbk,bca development program it bdp it,Central Jakarta,a month,30 Dec
 pt bca finance,professional development program technology,South Jakarta,a month,9 Jul
 pt dipo star finance,employee experience supervisor,Jakarta Pusat,a month,9 Jun
 pt midas daya teknologi,ios developer,Jakarta,a month,29 May
@@ -209,10 +208,7 @@ sevima,system analyst,Surabaya,2 months,11 May
 pt bank central asia tbk,it asset management staff,Central Jakarta,2 months,30 Dec
 andalin,back end developer hybrid,South Jakarta,2 months,30 May
 astra financial,api specialist,Central Jakarta,2 months,8 May
-pt bfi finance indonesia tbk,branch operation management,Tangerang,2 months,7 May
-finaccel,internal auditor,South Jakarta,2 months,7 May
 pt bank ocbc nisp tbk,digital marketing technology developer,Tangerang,2 months,20 May
-pt astra graphia information technology,network engineer,Jakarta Pusat,2 months,7 May
 pt bfi finance indonesia tbk,sharia processing analyst,South Tangerang,2 months,30 Dec
 great giant foods,tax nsa jr specialist,Blitar,2 months,31 May
 pt bank central asia tbk,network engineer bahasa mandarin,Central Jakarta,2 months,24 Dec
@@ -224,3 +220,7 @@ pt berlian sistem informasi,it product management,Jakarta Timur,2 months,19 Sep
 pt sinar mas digital ventures,operations lead,Bekasi,2 months,22 May
 pt bfi finance indonesia tbk,bfi finance x arkavidia data engineer,Tangerang,3 months,30 Dec
 pt bfi finance indonesia tbk,bfi finance x arkavidia data analyst,Tangerang,3 months,30 Dec
+pt bfi finance indonesia tbk,bfi finance x arkavidia data architect,Tangerang,3 months,29 Dec
+pt sinar mas digital ventures,chief financial officer,Jakarta Selatan,3 months,8 May
+pt bfi finance indonesia tbk,human capital data analyst internship,Tangerang,3 months,29 May
+permata bank,audit data analytics,Tangerang,3 months,29 Jun
