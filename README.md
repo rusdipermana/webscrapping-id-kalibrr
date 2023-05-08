@@ -1,5 +1,5 @@
 # webscrapping-id-kalibrr
-In this modul, We will analyze job opportunities in the data field taken from the job information provider website, kalinbrr.id, as well as insights gained from the analysis. We will use the Python programming language and supporting libraries such as the web parser library BeautifulSoup, Pandas Library as an analysis tool, matplotlib for visualization, and Jupiter notebook as a coding medium.
+In this modul, We will analyze job opportunities in the data field taken from the job information provider website, kalinbrr.id, as well as insights gained from the analysis. We will use the Python programming language and supporting libraries such as the web parser library BeautifulSoup, Pandas Library as an analysis tool, matplotlib for visualization, and Jupyter Notebook as a tidy report.
 
 www.kalibrr.id is a website that provides a platform for job search and recruitment in Indonesia. This site allows companies to post their job vacancies and search for suitable candidates for those positions. It also allows job seekers to search for job vacancies that match their qualifications and interests.
 
