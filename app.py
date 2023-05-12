@@ -239,8 +239,10 @@ def index():
 	# generate plot
 	fig, ax = plt.subplots(figsize=(15, 9))
 	ax.bar(city_dict.index, city_dict.values, color=colors)
-	plt.plot(city_dict.index, city_dict.values, color='#2a9d8f')
-    
+	# plt.bar(city_dict.index, city_dict.values, color='#2a9d8f')
+    # menambahkan angka hasil data ke diagram
+	for x, y in zip(city_dict.index, city_dict.values):
+		plt.text(x, y, str(y), ha='center', va='bottom')
 	
 	
 	# Rendering plot
@@ -254,8 +256,10 @@ def index():
         
 	fig, ax = plt.subplots(figsize=(15, 9))
 	ax.bar(post_month.index,post_month.values, color=colors)
-    
-        
+	# plt.bar(post_month.index, post_month.values, color='#2a9d8f')
+	# menambahkan angka hasil data ke diagram
+	for x, y in zip(post_month.index, post_month.values):
+		plt.text(x, y, str(y), ha='center', va='bottom')
 	figfile = BytesIO()
 	plt.savefig(figfile, format='png', transparent=True, dpi=100, width=500)
 	figfile.seek(0)
@@ -264,8 +268,12 @@ def index():
 
 
 	fig, ax = plt.subplots(figsize=(15, 9))
-	ax.bar(deadline_month.index, deadline_month.values, color=colors)
-    
+	# ax.bar(deadline_month.index, deadline_month.values, color=colors)
+	plt.plot(deadline_month.index, deadline_month.values, color='#2a9d8f')
+    # menambahkan angka hasil data ke diagram
+	for x, y in zip(deadline_month.index, deadline_month.values):
+		plt.text(x, y, str(y), ha='center', va='bottom')
+                
 	figfile = BytesIO()
 	plt.savefig(figfile, format='png', transparent=True, dpi=100, width=500)
 	figfile.seek(0)

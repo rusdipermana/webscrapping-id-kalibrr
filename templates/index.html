@@ -41,9 +41,11 @@
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-sm-12">
 				<div class="tab">
-					<button class="tablinks" onclick="openTab(event, 'profile') " id="defaultOpen">by Profile
+					<button class="tablinks" onclick="openTab(event, 'city') " id="defaultOpen">by City
 					</button>
-					<button class="tablinks" onclick="openTab(event, 'Own')">(Create-Your-Own)
+					<button class="tablinks" onclick="openTab(event, 'posted')">by Posted Date
+					</button>
+					<button class="tablinks" onclick="openTab(event, 'deadline')">by Deadline Date
 					</button>
 				</div>
 			</div>
@@ -51,24 +53,34 @@
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-sm-12">
 				<!-- Tab content -->
-				<div id="profile" class="tabcontent">
+				<div id="city" class="tabcontent">
 					<br>
-					<h3 style="color: #333333;text-align:center">plot title here</h3>
+					<h3 style="color: #333333;text-align:center">Job Posting by City</h3>
 					<div class="img-container"">
 						{% if funded_plot != None %}
 					  <img src="data:image/png;base64,{{ plot_result }}" >
 						{% endif %}
 					</div>
 				</div>
-				<div id="Own" class="tabcontent">
+				<div id="posted" class="tabcontent">
 				  <!-- Define your own analysis for extra challange -->
 				  <br>
-				  <h3 style="color: #333333;text-align:center">plot title here</h3>
+				  <h3 style="color: #333333;text-align:center">Job Posting By Posted Date</h3>
 				  <div class="img-container"">
 					  {% if funded_plot != None %}
 					<img src="data:image/png;base64,{{ plot_result1 }}" >
 					  {% endif %}
 				  </div>
+				</div>
+				<div id="deadline" class="tabcontent">
+					<!-- Define your own analysis for extra challange -->
+					<br>
+					<h3 style="color: #333333;text-align:center">Job Posting By Posted Date</h3>
+					<div class="img-container"">
+						{% if funded_plot != None %}
+					  <img src="data:image/png;base64,{{ plot_result2 }}" >
+						{% endif %}
+					</div>
 				</div>
 			</div>
 		</div>
