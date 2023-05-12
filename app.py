@@ -1,15 +1,20 @@
 from flask import Flask, render_template
 import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
-from bs4 import BeautifulSoup 
 import requests
+import re
+import matplotlib
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup
+import pandas as pd
 from cgitb import text
 import string
-import re
-
+import matplotlib.pyplot as plt
+import numpy as np
+from cProfile import label
+import calendar
+from io import BytesIO
+import base64
+import requests
 
 
 # #don't change this
@@ -104,41 +109,139 @@ def pre_text(pretext):
 df = pd.read_csv('db_kalibrr.csv')
 
 #insert data wrangling here
-kota_ubah = df[df['Location'].str.contains('jakarta', case=False)]
+df.drop_duplicates(inplace=True)
+df.duplicated().value_counts()
+df = df[~df['Location'].str.contains('Philippines')]
 
-# Ubah nilai kolom 'Location' menjadi 'jakarta' jika nilainya terdapat pada kota_ubah
-replace_dict = {k: 'Jakarta' for k in kota_ubah['Location'].unique()}
-city_dict = df['Location'].replace(replace_dict)
+from cProfile import label
 
-city_dict = city_dict.sort_values(ascending=False).value_counts().head()
+df_1 = df.copy()
 
-# # Ubah nilai pada kolom tertentu
-df['Location'] = df['Location'].apply(pre_text)
-df['Location'] = df['Location'].replace(['central jakarta','south jakarta','east jakarta', 'west jakarta', 'north jakarta'], \
-                                          ['jakarta pusat','jakarta selatan','jakarta timur', 'jakarta barat', 'jakarta utara'])
-# Ubah nilai kolom 'Location' menjadi 'tanggerang' jika nilainya terdapat pada kota_ubah
-kota_ubah = df[df['Location'].str.contains('tangerang', case=False)]
-replace_dict = {k: 'tangerang' for k in kota_ubah['Location'].unique()}
-df['Location'] = df['Location'].replace(replace_dict).str.title()
+# Replace values in 'Location' column with 'Jakarta' if they match any value in 'kota_ubah' for Jakarta
+kota_ubah_jkt = df_1[df_1['Location'].str.contains('jakarta', case=False)]
+replace_dict_jkt = {k: 'Jakarta' for k in kota_ubah_jkt['Location'].unique()}
+df_1['Location'] = df_1['Location'].replace(replace_dict_jkt)
 
+# Replace values in 'Location' column with 'Tangerang' if they match any value in 'kota_ubah' for Tangerang
+kota_ubah_tgr = df_1[df_1['Location'].str.contains('tangerang', case=False)]
+replace_dict_tgr = {k: 'Tangerang' for k in kota_ubah_tgr['Location'].unique()}
+df_1['Location'] = df_1['Location'].replace(replace_dict_tgr)
 
-top_city_dict = df['Location'].sort_values(ascending=False)
-top_city_dict = top_city_dict.value_counts(normalize=True).head(10)
-top_city_dict = top_city_dict.apply(lambda x: round(x * 100, 2))
+# Replace values in 'Location' column with 'Tangerang' if they match any value in 'kota_ubah' for Tangerang
+kota_ubah_tgr = df_1[df_1['Location'].str.contains('Lampung', case=False)]
+replace_dict_tgr = {k: 'Lampung' for k in kota_ubah_tgr['Location'].unique()}
+df_1['Location'] = df_1['Location'].replace(replace_dict_tgr)
 
+# Sort and count the values in the 'Location' column
+city_dict = df_1['Location'].sort_values(ascending=False).value_counts()
+city_dict = city_dict.head()
+
+df_1['Location'] = df_1['Location'].astype('category')
+
+# fungsi untuk mengubah nilai menjadi timedelta jika dapat diubah
+def to_timedelta(val):
+    try:
+        return pd.Timedelta(val)
+    except:
+        pass
+    try:
+        if 'years' in val:
+            val = val.replace('years', '').strip()
+            return int(val) * pd.Timedelta(days=365)
+        if 'year' in val:
+            val = val.replace('year', '').strip()
+            return int(val) * pd.Timedelta(days=365)
+        if 'months' in val:
+            val = val.replace('months', '').strip()
+            return int(val) * pd.Timedelta(days=30)
+        if 'days' in val:
+            val = val.replace('days', '').strip()
+            return pd.Timedelta(days=int(val))
+        if 'month' in val:
+            return pd.Timedelta(days=30)
+        if 'day' in val:
+            return pd.Timedelta(days=1)
+        # if 'hours' in val:
+        #     return pd.Timedelta(days=1)
+        if 'minute' in val:
+            val = val.replace('minute', '').strip()
+            return pd.Timedelta(minutes=int(val))
+        if 'minutes' in val:
+            val = val.replace('minutes', '').strip()
+            return pd.Timedelta(minutes=int(val))
+        if 'hour' in val:
+            val = val.replace('an', '1').replace('hour', '').strip()
+            return pd.Timedelta(minutes=int(val))
+        if 'hours' in val:
+            val = val.replace('hours', '').strip()
+            return pd.Timedelta(minutes=int(val))
+    except:
+        pass
+    return np.nan
+
+now = pd.Timestamp.now()
+# konversi kolom posted_date menjadi timedelta
+df_1['Posted_Date'] = df_1['Published_At'].apply(to_timedelta)
+df_1['Posted_Date'] = now - df_1['Posted_Date']
+df_1['Posted_Date'] = df_1['Posted_Date'].apply(lambda x: x.strftime('%d-%m-%Y'))
+df_1['Posted_Date'] = pd.to_datetime(df_1['Posted_Date'], format='%d-%m-%Y')
+
+df_1['publish_month'] = df_1['Posted_Date'].dt.month_name()
+df_1['publish_month'].value_counts().sort_index(level=['publish_month'], ascending=True)
+
+df_1 = df_1[df_1['Posted_Date'].dt.year == 2023]
+df_1['Posted_Date'].value_counts().sort_index(level=['Posted_Date'], ascending=True)
+post_month = df_1['publish_month'].value_counts().sort_index()
+post_month = post_month.sort_values(key=lambda x: [list(calendar.month_name).index(i) for i in x.index])
+month_dict = {
+    'Jan': 'January',
+    'Feb': 'February',
+    'Mar': 'March',
+    'Apr': 'April',
+    'May': 'May',
+    'Jun': 'June',
+    'Jul': 'July',
+    'Aug': 'August',
+    'Sep': 'September',
+    'Oct': 'October',
+    'Nov': 'November',
+    'Dec': 'December'
+}
+df_1['Application_Deadline'] = df_1['Application_Deadline'].apply(lambda x: ' '.join([month_dict[i] if i in month_dict else i for i in x.split()]))
+df_1['Deadline_Date'] = df_1['Application_Deadline'].apply(lambda x: x + ' 2023')
+df_1['Deadline_Date'] = pd.to_datetime(df_1['Deadline_Date'], format='%d %B %Y')
+
+df_1['deadline_month'] = df_1['Deadline_Date'].dt.month_name()
+df_1['deadline_month'].value_counts().sort_index(level=['deadline_month'], ascending=True)
+
+deadline_month = df_1['deadline_month'].value_counts().sort_index()
+deadline_month = deadline_month.sort_values(key=lambda x: [list(calendar.month_name).index(i) for i in x.index])
+# Menambahkan bulan Januari, Februari, dan Maret dengan nilai 0
+deadline_month = deadline_month.reindex(calendar.month_name[1:], fill_value=0)
+deadline_month = deadline_month.sort_values(key=lambda x: [list(calendar.month_name).index(i) for i in x.index])
+
+#Data Objek Series yang ditampilkan di web
+city_dict
+post_month
+deadline_month
 #end of data wranggling 
 
 #Setting Bar
 colors = ['#264653', '#2a9d8f', '#e9c46a', '#f4a261', '#e76f51']
 
+
+
 @app.route("/")
 def index(): 
 	
-	card_data = f'{top_city_dict}' #be careful with the " and ' 
+	card_data = f'{city_dict}' #be careful with the " and ' 
 
 	# generate plot
 	fig, ax = plt.subplots(figsize=(15, 9))
-	ax.bar(top_city_dict.index, top_city_dict.values, color=colors)
+	ax.bar(city_dict.index, city_dict.values, color=colors)
+	plt.plot(city_dict.index, city_dict.values, color='#2a9d8f')
+    
+	
 	
 	# Rendering plot
     
@@ -148,11 +251,33 @@ def index():
 	figfile.seek(0)
 	figdata_png = base64.b64encode(figfile.getvalue())
 	plot_result = str(figdata_png)[2:-1]
+        
+	fig, ax = plt.subplots(figsize=(15, 9))
+	ax.bar(post_month.index,post_month.values, color=colors)
+    
+        
+	figfile = BytesIO()
+	plt.savefig(figfile, format='png', transparent=True, dpi=100, width=500)
+	figfile.seek(0)
+	figdata_png = base64.b64encode(figfile.getvalue())
+	plot_result1 = str(figdata_png)[2:-1]
 
+
+	fig, ax = plt.subplots(figsize=(15, 9))
+	ax.bar(deadline_month.index, deadline_month.values, color=colors)
+    
+	figfile = BytesIO()
+	plt.savefig(figfile, format='png', transparent=True, dpi=100, width=500)
+	figfile.seek(0)
+	figdata_png = base64.b64encode(figfile.getvalue())
+	plot_result2 = str(figdata_png)[2:-1]
+        
 	# render to html
 	return render_template('index.html',
 		card_data = card_data, 
-		plot_result=plot_result
+		plot_result=plot_result,
+        plot_result1=plot_result1,
+        plot_result2=plot_result2
 		)
 
 

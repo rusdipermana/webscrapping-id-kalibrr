@@ -62,7 +62,13 @@
 				</div>
 				<div id="Own" class="tabcontent">
 				  <!-- Define your own analysis for extra challange -->
-
+				  <br>
+				  <h3 style="color: #333333;text-align:center">plot title here</h3>
+				  <div class="img-container"">
+					  {% if funded_plot != None %}
+					<img src="data:image/png;base64,{{ plot_result1 }}" >
+					  {% endif %}
+				  </div>
 				</div>
 			</div>
 		</div>
