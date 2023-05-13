@@ -230,7 +230,9 @@ colors = ['#264653', '#2a9d8f', '#e9c46a', '#f4a261', '#e76f51']
 @app.route("/")
 def index(): 
 	
-	card_data = f'{city_dict}' #be careful with the " and ' 
+	card_data = f'{city_dict}'
+	card_data1 = f'{post_month}'
+	card_data2 = f'{deadline_month}'#be careful with the " and ' 
 
 	# generate plot
 	fig, ax = plt.subplots(figsize=(15, 9))
@@ -278,7 +280,9 @@ def index():
         
 	# render to html
 	return render_template('index.html',
-		card_data = card_data, 
+		card_data = card_data,
+        card_data1 = card_data1, 
+        card_data2 = card_data2, 
 		plot_result=plot_result,
         plot_result1=plot_result1,
         plot_result2=plot_result2
