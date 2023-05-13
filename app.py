@@ -23,20 +23,18 @@ app = Flask(__name__) #do not change this
 
 #insert the scrapping here
 
-# #Find All
-# def divElement(page_no) :
-#     url = "https://www.kalibrr.id/job-board/te/data/co/Indonesia/"
-#     pageFilter = "?sort=Freshness"
+def findAll(page_no) :
+    url = "https://www.kalibrr.id/job-board/te/data/co/Indonesia/"
+    pageFilter = "?sort=Freshness"
 
-#     url_get = requests.get(url+str(page_no)+pageFilter)
+    url_get = requests.get(url+str(page_no))
 
-#     soup = BeautifulSoup(url_get.content,"html.parser")
+    soup = BeautifulSoup(url_get.content,"html.parser")
 
-#     div_elements = soup.find_all('div', attrs={'class':'k-grid k-border-tertiary-ghost-color k-text-sm k-p-4 md:k-p-6 css-1b4vug6'})
-#     # print(len(div_elements))
-#     return div_elements
+    findAll = soup.find_all('div', attrs={'class':'k-grid k-border-tertiary-ghost-color k-text-sm k-p-4 md:k-p-6 css-1b4vug6'})
+    #print(len(findAll))
+    return findAll
 
-#Pre-text
 def pre_text(pretext):
 
     pretext = pretext.lower()
@@ -44,66 +42,64 @@ def pre_text(pretext):
     pretext = ' '.join(pretext.split())
     pretext = pretext.strip()
     return pretext
+def find(job) :
 
-# #Find
-# def getJobInfo(job) :
+    job_company = job.select_one('div.k-col-start-3.k-row-start-3 a')
+    if job_company is not None :
+        # print('Company :',job_company.text.strip())
+        job_company = pre_text(job_company.text)
 
-#     job_company = job.select_one('div.k-col-start-3.k-row-start-3 a')
-#     if job_company is not None :
-#         # print('Company :',job_company.text.strip())
-#         job_company = pre_text(job_company.text)
+    # for job_titles :
+    job_title = job.select_one('div.k-col-start-3.k-row-start-1 h2 a')
+    if job_title is not None:
+        # print('Position :',job_title.text.strip())
+        job_title = pre_text(job_title.text)
 
-#     # for job_titles :
-#     job_title = job.select_one('div.k-col-start-3.k-row-start-1 h2 a')
-#     if job_title is not None:
-#         # print('Position :',job_title.text.strip())
-#         job_title = pre_text(job_title.text)
-
-#     # for job_locations :
-#     job_location = job.select_one('div.k-col-start-3.k-row-start-3 a.k-text-subdued.k-block')
-#     if job_location is not None :
-#         job_location = job_location.text.replace('\n', "").replace(',', '').strip()
+    # for job_locations :
+    job_location = job.select_one('div.k-col-start-3.k-row-start-3 a.k-text-subdued.k-block')
+    if job_location is not None :
+        job_location = job_location.text.replace('\n', "").replace(',', '').strip()
         
-#         job_location = re.sub(r"\b(?:Indonesia|City|Kota|Kabupaten)\b", "", job_location, flags=re.IGNORECASE).strip()
-#         # print('Location :',job_location)
+        job_location = re.sub(r"\b(?:Indonesia|City|Kota|Kabupaten|Regency)\b", "", job_location, flags=re.IGNORECASE).strip()
+        # print('Location :',job_location)
     
-#     # for date info     
-#     posted_info = job.select_one('div.k-col-start-5.k-row-start-1 span:first-of-type')
-#     if posted_info is not None :
-#         posted_info = posted_info.text.strip()
-#         published_at, application_deadline = posted_info.split("• Apply before")
-#         published_at = published_at.replace('ago', '').replace('Posted', '').strip()
-#         application_deadline = application_deadline.strip()
+    # for date info     
+    posted_info = job.select_one('div.k-col-start-5.k-row-start-1 span:first-of-type')
+    if posted_info is not None :
+        posted_info = posted_info.text.strip()
+        published_at, application_deadline = posted_info.split("• Apply before")
+        published_at = published_at.replace('ago', '').replace('Posted', '').strip()
+        application_deadline = application_deadline.strip()
 
-#     job_data = [job_company, job_title, job_location, published_at, application_deadline]
-#     return job_data
+    job_data = [job_company, job_title, job_location, published_at, application_deadline]
+    return job_data
 
-# def save_file() :
-#     i = 0
+def save_file() :
+    i = 0
 
-#     job_desc = divElement(page_no=page)
-#     # print("Total Save :",len(job_desc))
+    job_desc = findAll(page_no=page)
+    # print("Total Save :",len(job_desc))
 
-#     for job in job_desc :
-#         i = i + 1
-#         job_info = getJobInfo(job)
-#         csv.write(job_info[0]+ ',' + job_info[1] + ',' + job_info[2] + ',' + job_info[3] + "," + job_info[4]+ '\n')
-#         # print("save",i)
+    for job in job_desc :
+        i = i + 1
+        job_info = find(job)
+        csv.write(job_info[0]+ ',' + job_info[1] + ',' + job_info[2] + ',' + job_info[3] + "," + job_info[4]+ '\n')
+        # print("save",i)
 
-# csv=open("db_kalibrr.csv", 'w')
-# headers = "Company,Title,Location,Published_At,Application_Deadline\n"
-# csv.write(headers)
+csv=open("db_kalibrr.csv", 'w')
+headers = "Company,Title,Location,Published_At,Application_Deadline\n"
+csv.write(headers)
 
 
-# for page in range(1,16):
+for page in range(1,29):
 
-#     print('Page from :',page)
+    print('Page :',page)
 
-#     save_file()
+    save_file()
 
-# print('Scraping is successful !!')
+print('Scraping is successful !!')
 
-# csv.close() 
+csv.close()
 
 #change into dataframe
 df = pd.read_csv('db_kalibrr.csv')
