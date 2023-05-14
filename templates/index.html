@@ -84,7 +84,16 @@
 				<!-- Tab content -->
 				<div id="city" class="tabcontent">
 					<br>
-					<h3 style="color: #333333;text-align:center">Job Posting by City</h3>
+					<h2 style="color: #333333;text-align:center">Top 5 Job Locations</h2>
+					<h5 style="color: #333333;text-align:left">
+						<ol>
+							<li>Untuk pekerjaan pada kategori dibidang "Data", Jakarta memiliki jumlah kejadian tertinggi dari semua lokasi yang terdaftar di website ww.kalibrr.id. Hal ini dapat menjadi informasi yang berguna bagi para pengambil keputusan untuk memperhatikan Jakarta secara lebih khusus.</li>
+							<li>Tangerang merupakan lokasi kedua dengan jumlah kejadian yang signifikan, meskipun jumlahnya jauh lebih rendah dari Jakarta. Hal ini dapat menjadi perhatian bagi para pengambil keputusan di Tangerang untuk memperbaiki atau mempertahankan kondisi yang sudah baik agar tetap menarik bagi para pengusaha.</li>
+							<li>Bandung, Surabaya, dan Yogyakarta memiliki jumlah kejadian yang lebih sedikit dibandingkan dengan Jakarta dan Tangerang. Namun, hal ini tidak berarti bahwa keadaan di daerah-daerah tersebut kurang penting. Karena setiap daerah memiliki keunikan dan potensi yang berbeda-beda, maka penting bagi para pengambil keputusan untuk mengidentifikasi kelebihan dan kekurangan masing-masing daerah untuk mengambil langkah yang tepat dalam mengembangkan daerah tersebut.</li>
+							<br>
+							<p>Note : Perlu diperhatikan, jika melakukan scraping ulang, maka hasil akan berbeda.</p>
+						</ol>
+					</h5>
 					<div class="img-container"">
 						{% if funded_plot != None %}
 					  <img src="data:image/png;base64,{{ plot_result }}" >
@@ -94,7 +103,15 @@
 				<div id="posted" class="tabcontent">
 				  <!-- Define your own analysis for extra challange -->
 				  <br>
-				  <h3 style="color: #333333;text-align:center">Job Posting By Posted Date</h3>
+				  <h2 style="color: #333333;text-align:center">Total Frequency of Active Job Application</h2>
+					<h5 style="color: #333333;text-align:left">
+						<ol>
+							<li>Dari diagram terlihat bahwa bulan April memiliki jumlah postingan terbanyak, diikuti oleh bulan Mei dengan, hal ini terkait dengan data yang diambil pada bulan mei hanya sampai dengan Tanggal 12 mei 2023 dimana capstone project ini dibuat. Jumlah postingan pada bulan-bulan lainnya jauh lebih sedikit yaitu bulan Maret, bulan Februari, dan bulan Januari.
+								Faktor yang mempengauhi sedikitnya frekuensi pada bulan january, february dan march dikarenakan Postingan tersebut memiliki masa batas submit lamaran yang sudah habis sehingga sudah tidak dimunculkan kembali/dihapus oleh company yang memposting di website ww.kalibrr.com.</li>
+							<br>
+							<p>Note : Perlu diperhatikan, jika melakukan scraping ulang, maka hasil akan berbeda.</p>
+						</ol>
+					</h5>
 				  <div class="img-container"">
 					  {% if funded_plot != None %}
 					<img src="data:image/png;base64,{{ plot_result1 }}" >
@@ -104,7 +121,14 @@
 				<div id="deadline" class="tabcontent">
 					<!-- Define your own analysis for extra challange -->
 					<br>
-					<h3 style="color: #333333;text-align:center">Job Posting By Deadline Date</h3>
+					<h2 style="color: #333333;text-align:center">Job Posting By Deadline Date</h2>
+						<h5 style="color: #333333;text-align:left">
+							<li>Pada pembahasan ini dibuat, range data hasil scrapping adalah 01 Januari 2023 sd 12 Mei 2023, dapat liat lihat dari diagram line bahwa untuk dibulan yang sama dan 1 bulan kedepan masih menunjukan angka tertinggi untuk batas waktu penyerahan lamaran.</li>
+							<li>Untuk bulan-bulan sebelumnya menunjukan angka terendah karena terkait dengan batas penyerahan lamaran yang sudah tidak berlaku lagi sehingga postingan sudah tidak muncul pada website www.kalibrr.com.</li>
+							<li>Hal ini berkorelasi dari insight sebelumya dari Posted_Date dimana menunjukan angka yang rendah dikarenakan postingan lowongan pekerjaan tersebut memiliki batas lamaran yang sudah kadaluarsa.</li>
+							<br>
+							<p>Note : Perlu diperhatikan, jika melakukan scraping ulang, maka hasil akan berbeda.</p>
+						</h5>
 					<div class="img-container"">
 						{% if funded_plot != None %}
 					  <img src="data:image/png;base64,{{ plot_result2 }}" >
