@@ -12,6 +12,10 @@ To follow this module, you need to install several libraries including:
 - pandas
 - matplotlibs
 
+In order to set your environment up to run the code here, first install all requirements:
+
+`pip install -r requirements.txt`
+
 # Overview of BeautifulSoup
 
 BeautifulSoup is a Python library used for web scraping, which is a technique for automatically extracting data from web pages. The library allows parsing of HTML and XML documents, making it easier to navigate, search, and modify the content of a webpage.
