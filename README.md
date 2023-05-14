@@ -10,7 +10,8 @@ To follow this module, you need to install several libraries including:
 
 - beautifulSoup4
 - pandas
-- matplotlibs
+- flask
+- matplotlib
 
 In order to set your environment up to run the code here, first install all requirements:
 
