@@ -235,7 +235,7 @@ def index():
 	card_data2 = f'{deadline_month}'#be careful with the " and ' 
 
 	# generate plot
-	fig, ax = plt.subplots(figsize=(15, 9))
+	fig, ax = plt.subplots(figsize=(20,9))
 	ax.bar(city_dict.index, city_dict.values, color=colors)
 	# plt.bar(city_dict.index, city_dict.values, color='#2a9d8f')
     # menambahkan angka hasil data ke diagram
@@ -247,25 +247,25 @@ def index():
     
 	# Do not change this
 	figfile = BytesIO()
-	plt.savefig(figfile, format='png', transparent=True, dpi=100, width=500)
+	plt.savefig(figfile, format='png', transparent=True)
 	figfile.seek(0)
 	figdata_png = base64.b64encode(figfile.getvalue())
 	plot_result = str(figdata_png)[2:-1]
         
-	fig, ax = plt.subplots(figsize=(15, 9))
+	fig, ax = plt.subplots(figsize=(20,9))
 	ax.bar(post_month.index,post_month.values, color=colors)
 	# plt.bar(post_month.index, post_month.values, color='#2a9d8f')
 	# menambahkan angka hasil data ke diagram
 	for x, y in zip(post_month.index, post_month.values):
 		plt.text(x, y, str(y), ha='center', va='bottom')
 	figfile = BytesIO()
-	plt.savefig(figfile, format='png', transparent=True, dpi=100, width=500)
+	plt.savefig(figfile, format='png', transparent=True)
 	figfile.seek(0)
 	figdata_png = base64.b64encode(figfile.getvalue())
 	plot_result1 = str(figdata_png)[2:-1]
 
 
-	fig, ax = plt.subplots(figsize=(15, 9))
+	fig, ax = plt.subplots(figsize=(20,9))
 	# ax.bar(deadline_month.index, deadline_month.values, color=colors)
 	plt.plot(deadline_month.index, deadline_month.values, color='#2a9d8f')
     # menambahkan angka hasil data ke diagram
@@ -273,7 +273,7 @@ def index():
 		plt.text(x, y, str(y), ha='center', va='bottom')
                 
 	figfile = BytesIO()
-	plt.savefig(figfile, format='png', transparent=True, dpi=100, width=500)
+	plt.savefig(figfile, format='png', transparent=True)
 	figfile.seek(0)
 	figdata_png = base64.b64encode(figfile.getvalue())
 	plot_result2 = str(figdata_png)[2:-1]
