@@ -90,7 +90,7 @@ csv=open("db_kalibrr.csv", 'w')
 headers = "Company,Title,Location,Published_At,Application_Deadline\n"
 csv.write(headers)
 
-
+print('It will scrape about 28 pages. Please wait...')
 for page in range(1,29):
 
     print('Page :',page)
